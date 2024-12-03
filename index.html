@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Title</title>
+    <style>
+        /* CSS code goes here */
+        body {
+            min-height: 100vh;
+            background: url('https://cdn.discordapp.com/attachments/1213401205804634114/1313274830061047918/hero.png?ex=674f89fe&is=674e387e&hm=8cf32a4aeae3e6a2db55a0c0f905418f2fa4b802848f3214bc3ff128272cef1f&') center / cover no-repeat;
+            background-color: black;  /* Set background to black */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;  /* Default text color to white */
+            position: relative;
+        }
+
+        /* Top bar styles */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;  /* Dark background color for top bar */
+            padding: 10px 20px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        /* Random image on the left */
+        .top-bar .logo img {
+            height: 30px;  /* Adjust size of the image */
+        }
+
+        /* Categories words in the top bar */
+        .top-bar .categories {
+            display: flex;
+            gap: 20px;
+            color: white;
+        }
+
+        .top-bar .categories a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px; /* Smaller font size for categories */
+        }
+
+        /* 'Need Help' blue box on the far right */
+        .top-bar .need-help {
+            background-color: #007bff;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Container to position text near the bottom */
+        .text-container {
+            position: absolute;
+            bottom: 20%; /* Place the text 20% from the bottom */
+            left: 20px;  /* Add a small space from the left */
+            text-align: left;  /* Align text to the left */
+        }
+
+        /* Heading styles */
+        h1 {
+            font-size: 80px;  /* Smaller font size */
+            margin: 0;  /* Remove default margin around heading */
+            padding: 0;  /* Remove any padding */
+        }
+
+        /* Paragraph styles (set them inline) */
+        p {
+            font-size: 30px;  /* Smaller font size */
+            margin: 0 10px;  /* Add horizontal margin between text items */
+            padding: 0;  /* Remove any padding */
+            display: inline;  /* Display text in a single line */
+        }
+
+        /* Red and blue classes for coloring text */
+        .red {
+            color: red; 
+        }
+
+        .blue {
+            color: blue;  
+        }
+
+        /* Additional small grayish text below the heading */
+        .gray-text {
+            font-size: 16px;
+            color: gray;
+            margin-top: 10px; /* Add some space above this text */
+        }
+
+        /* Styles for the help box */
+        .help-box {
+            display: none;
+            position: absolute;
+            top: 50px; /* Position the box below the "Need Help" button */
+            right: 0;
+            background-color: #444;  /* Darker gray background */
+            border: 1px solid black;  /* Black border */
+            padding: 20px;
+            width: 250px;  /* Increase the width of the box */
+            height: auto;  /* Allow height to adjust to text */
+            border-radius: 10px; /* Rounded corners */
+            text-align: center;
+            font-size: 12px;  /* Smaller text */
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Hover effect on text in the help box */
+        .help-box p:hover {
+            color: #7a4fc1;  /* Random purple color */
+        }
+
+        /* Hover effect for text in the top bar */
+        .top-bar .categories a:hover {
+            color: #7a4fc1;  /* Random purple color */
+        }
+
+        /* Verification image and text */
+        .verification-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.5); /* Initially smaller */
+            text-align: center;
+            color: white;
+            z-index: 9999; /* Make sure it's on top of everything */
+            opacity: 0;
+            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+        }
+
+        .verification-popup img {
+            width: 200px;  /* Size of the image */
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .verification-popup p {
+            font-size: 30px;
+            margin-top: 15px;  /* Space between image and text */
+            color: red;  /* Text color red for verification */
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="logo">
+            <!-- Random image (you can replace this with your custom wholesome robot image with a thumbs-up) -->
+            <img src="https://cdn.discordapp.com/attachments/1213401205804634114/1313588456299036694/wordmark.png?ex=6750ae15&is=674f5c95&hm=e03907c138c89a6a24da83a7eab2c49991d41ce55c4c9234d6f701d58497067d&" alt="Logo">
+        </div>
+        <div class="categories">
+            <!-- Category links (replace text as needed) -->
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Pricing</a>
+            <a href="#">Discord bot</a>
+        </div>
+        <div class="need-help">
+            Need Help
+        </div>
+    </div>
+
+    <!-- Help Box (Hidden by default, shown on hover) -->
+    <div class="help-box">
+        <p>Click The Roblox Purple Text, Then join The group and you will be automatically verified.</p>
+    </div>
+
+    <!-- Text Container (Main content) -->
+    <div class="text-container">
+        <h1>Bloxlink</h1>
+        <p>Bringing</p>
+        <p class="red"><a href="https://shorter.me/VOtgZ" id="robloxLink">Roblox</a></p>
+        <p>To</p>
+        <p class="blue">Discord</p>
+        <!-- Additional gray text -->
+        <p class="gray-text"><br> Connect Roblox to Discord using Bloxlink, the leading Roblox Discord Bot. <br> Verify who you really are,  sync your group to your server, and more.</p>
+    </div>
+
+    <!-- Verification Popup (Image and Text) -->
+    <div class="verification-popup" id="verificationPopup">
+        <!-- Replace with your custom image (wholesome robot thumbs-up with no background) -->
+        <img src="https://cdn.discordapp.com/attachments/1213401205804634114/1313587523414659133/cc8bb23addd8100447e8712bbf2f9d40-removebg-preview_1.png?ex=6750ad36&is=674f5bb6&hm=1400cf27ab53f9c30b2884c906ee8b1477ad42339bf67fe9a37273de5da07c4f&" alt="Verification Image">
+        <p> <br> You have successfully been verified.</p>
+    </div>
+
+    <!-- JavaScript for help box show/hide effect and verification popup -->
+    <script>
+        const helpButton = document.querySelector('.need-help');
+        const helpBox = document.querySelector('.help-box');
+        const robloxLink = document.getElementById('robloxLink');
+        const
